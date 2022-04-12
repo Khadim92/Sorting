@@ -10,11 +10,26 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int>() { 1,2,3,5,4};
-            List<int> l2=list.OrderByDescending(x => x).ToList();
-            foreach (int x in l2)
+            List<Student> students = new List<Student>();
+            students.Add(new Student("Khadim", 18, 18));
+            students.Add(new Student("Nasir", 19, 17));
+            students.Add(new Student("Ahmad", 19, 15));
+            List<Student> s = students.OrderByDescending(stu => stu.marks).ToList() ;
+            foreach (Student stu in s)
             {
-                Console.WriteLine(x+" ");
+                Console.WriteLine("{0}\t\t{1}\t\t{2} ",stu.name,stu.marks,stu.age);
+            }
+        }
+        class Student
+        {
+            public string name;
+            public int age;
+            public int marks;
+            public Student(string name, int age, int marks)
+            {
+                this.name = name;
+                this.age = age;
+                this.marks = marks;
             }
         }
     }
